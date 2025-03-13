@@ -6,146 +6,174 @@
 
 Welcome to the `data-review-ipynbs` folder of **Project DREAMS: DataCamp Resources & Engagement Analytics Monitoring System**! This folder is where contributors will submit their Google Colab notebooks containing the 5 research questions and analyses as outlined in the **Project DREAMS: Data Analysis Assignment**. The dataset for this assignment is sourced from the DataCamp Data Connector (see shield above for documentation). This README provides step-by-step instructions to help you submit your work, even if you're new to Git and GitHub.
 
-## Purpose
-The `data-review-ipynbs` folder is dedicated to storing Google Colab notebooks (`.ipynb` files) with your research questions and insights for Project DREAMS. Your submissions here will help us build a robust analytics platform for tracking DataCamp scholar engagement.
+### Important Note on Repository Access and Branch Permissions
+As a member of the GDG On Campus PUP organization, you do not automatically have access or permission to commit to this repository. Access depends on:
+- **Organization base permissions**: Check if the organization grants "Write" access to all members.
+- **Repository-specific permissions**: You must be explicitly granted "Write" or higher access to this repository, either individually or through a team.
+- **Team membership**: If you're part of a team with access to this repository, your permissions align with the team's settings.
+
+**Branch Restrictions**:
+- Contributors are **only allowed to push changes to the `data-review` branch**.
+- Direct pushes to the `main` branch are **not permitted**. All changes to `main` must be submitted via pull requests (PRs) and approved by maintainers.
+- Branch protection rules are enforced to ensure this workflow. If you attempt to push to `main`, you will receive an error.
+
+If you cannot commit or push to the `data-review` branch, contact the project lead (John Paul Curada) or an organization owner to verify your permissions. For more details, refer to GitHub's documentation on [organization permissions](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories).
+
+---
+
+## Assignment Overview
+
+Your task is to:
+1. Review the [DataCamp Data Connector documentation](https://enterprise-docs.datacamp.com/data-connector/explore-data-model/data-model).
+2. Formulate **5 research questions** that provide valuable insights for tracking and improving DataCamp scholar engagement.
+3. For each question:
+   - Explain its relevance to Project DREAMS objectives.
+   - Identify the tables and columns needed to answer the question.
+   - Describe any joins, aggregations, or calculations required.
+   - Explain how the insights could improve scholar management.
+
+---
 
 ## Submission Guidelines
-1. **File Name Format**: Name your notebook file as `SURNAME_DataReview.ipynb` (e.g., `CURADA_DataReview.ipynb`).
-   - Use your surname in ALL CAPS, followed by `_DataReview`.
-   - Ensure the file is a `.ipynb` file downloaded from Google Colab.
-2. **Notebook Content**: Your notebook must include:
-   - **Introduction**: A brief overview of your approach.
-   - **Research Questions**: 5 questions with explanations, tables/columns, methodology, and potential insights (see assignment details).
-   - **Conclusion**: How your insights benefit Project DREAMS.
-   - Use Markdown cells for formatting.
-3. **Due Date**: Submit by **March 14, 2025**.
-4. **Commit Message**: Use a clear commit message like:  
-   `"Add SURNAME_DataReview.ipynb with 5 research questions"`
 
-## Prerequisites
-- You need **Git** installed on your computer to collaborate via GitHub.
-- You must be a contributor to the `gdg-pup-data-and-ml` organization with **write access** to this repository.
+Follow these steps to submit your work to the `data-review-ipynbs` folder. Ensure you adhere to the file naming, formatting, and commit message conventions. **All submissions must be pushed to the `data-review` branch, not `main`.**
 
-## Step-by-Step Instructions
-Follow these steps to submit your work. These are written for beginners, so don’t worry if you’re new to Git!
+### 1. Prepare Your Google Colab Notebook
+- Create a Google Colab notebook for your assignment.
+- Use the filename format: `SURNAME_DataReview.ipynb` (e.g., `CURADA_DataReview.ipynb`).
+- Structure your notebook with the following sections using Markdown cells:
+  - **Introduction**: Brief overview of your approach.
+  - **Research Questions**: Your 5 research questions, each including:
+    - The question itself.
+    - Relevance to Project DREAMS objectives.
+    - Tables and columns required from the DataCamp Data Connector.
+    - Methodology (joins, aggregations, calculations).
+    - Potential insights and actions.
+  - **Conclusion**: Summarize how your insights would benefit Project DREAMS.
+- Ensure your notebook uses proper Markdown formatting for readability.
 
-### 1. Check if Git is Installed
-- Open your **Command Prompt** (Windows) or **Terminal** (Mac/Linux).
-- Type the following command and press Enter:
-  ```
-  git --version
-  ```
-- If you see a version number (e.g., `git version 2.39.2`), Git is installed. Move to Step 2.
-- If you get an error like "command not found," download and install Git from [git-scm.com](https://git-scm.com/downloads), then repeat this step.
+### 2. Download Your Notebook
+- Download your Google Colab notebook as an `.ipynb` file:
+  - Go to `File > Download > Download .ipynb`.
+  - Save the file with the correct filename (e.g., `SURNAME_DataReview.ipynb`).
 
-### 2. Clone the Repository
-- Clone the Project DREAMS repository to your computer:
-  ```
-  git clone https://github.com/gdg-pup-data-and-ml/project-dreams
-  ```
-- This creates a `project-dreams` folder on your computer with all the repo contents.
+### 3. Check Your Repository Setup
+- **If you have already forked and cloned the repository** (i.e., you completed these steps for a previous submission):
+  - Skip to **Step 4 (Update Your Local Repository)**.
+- **If you have NOT previously forked and cloned the repository**:
+  - Follow **Steps 4-6** to set up your repository, then proceed to **Step 7**.
 
-### 3. Navigate to the Repository
-- Move into the `project-dreams` folder:
+### 4. Fork the Repository (First-Time Setup Only)
+- Go to the main repository page on GitHub.
+- Click the **Fork** button in the top-right corner to create a copy of the repository under your GitHub account.
+- This fork will allow you to make changes and submit pull requests.
+
+### 5. Clone the Repository (First-Time Setup Only)
+- Clone your forked repository to your local machine:
+  ```bash
+  git clone <your-forked-repo-url>
   ```
-  cd project-dreams
+  - Replace `<your-forked-repo-url>` with the URL of your forked repository (found on GitHub under "Code").
+- Navigate to the repository folder:
+  ```bash
+  cd <repository-name>
   ```
 
-### 4. Set Up Your Git Identity
-- Configure your name and email (only need to do this once on your computer):
+### 6. Set Up the Upstream Remote (First-Time Setup Only)
+- Add the original repository as an upstream remote to keep your fork updated:
+  ```bash
+  git remote add upstream <original-repo-url>
   ```
-  git config --global user.name "Your Full Name"
-  git config --global user.email "your.email@example.com"
-  ```
-  - Replace `"Your Full Name"` with your name and `"your.email@example.com"` with the email tied to your GitHub account.
+  - Replace `<original-repo-url>` with the URL of the main repository (e.g., `https://github.com/<org-name>/<repo-name>.git`).
 
-### 5. Set Up Authentication
-- GitHub requires a Personal Access Token (PAT) instead of a password. Set this up once:
-  1. Go to [github.com/settings/tokens](https://github.com/settings/tokens).
-  2. Click **Generate new token** > **Generate new token (classic)**.
-  3. Name it (e.g., "Project DREAMS"), set expiration (e.g., 30 days), check the **repo** scope, and click **Generate token**.
-  4. Copy the token (e.g., `ghp_xxxxxxxxxxxxxxxxxx`).
-- Store your credentials so you don’t have to enter them repeatedly:
+### 7. Update Your Local Repository (For Returning Contributors)
+- If you already have the repository cloned, ensure your local copy is up-to-date with the main repository:
+  ```bash
+  git fetch upstream
+  git checkout main
+  git merge upstream/main
   ```
-  git config --global credential.helper store
+- Push the updates to your fork:
+  ```bash
+  git push origin main
   ```
-  - The first time you push, you’ll enter your GitHub username and PAT. Git will save them for future use.
 
-### 6. Switch to the `data-review` Branch
-- Move to the `data-review` branch where we’ll submit work:
-  ```
+### 8. Switch to the `data-review` Branch
+- Switch to the `data-review` branch in your local repository:
+  ```bash
   git checkout data-review
   ```
-- **Note**: If you see an error like "error: pathspec 'data-review' did not match any file(s) known to git," the branch doesn’t exist yet. Create it with:
-  ```
+- If the `data-review` branch does not exist locally, pull it from the upstream repository:
+  ```bash
   git checkout -b data-review
-  ```
-  - This creates and switches to the `data-review` branch.
-
-### 7. Go to the `data-review-ipynbs` Folder
-- Move into the `data-review-ipynbs` folder:
-  ```
-  cd data-review-ipynbs
+  git pull upstream data-review
   ```
 
-### 8. Add Your Notebook
-- After completing your assignment in Google Colab, download your notebook as a `.ipynb` file (File > Download > Download .ipynb).
-- Copy or move your `SURNAME_DataReview.ipynb` file into the `data-review-ipynbs` folder using your file explorer.
+### 9. Add Your Notebook to the Repository
+- Copy your downloaded `.ipynb` file (e.g., `SURNAME_DataReview.ipynb`) into the `data-review-ipynbs` folder in your local repository.
+- Stage the file for commit:
+  ```bash
+  git add data-review-ipynbs/SURNAME_DataReview.ipynb
+  ```
 
-### 9. Update Your Local Branch
-- Before committing, pull any updates from the `data-review` branch on GitHub:
+### 10. Commit Your Changes
+- Commit your changes with a clear and descriptive commit message:
+  ```bash
+  git commit -m "Add data review notebook for <Your Surname>"
   ```
-  git pull origin data-review
-  ```
-- If you see "Already up to date," proceed. If there are conflicts, ask for help.
+  - Example: `git commit -m "Add data review notebook for Curada"`.
 
-### 10. Check the Status
-- Check what’s changed:
-  ```
-  git status
-  ```
-- You should see your file listed under "Untracked files" or "Changes not staged for commit."
-
-### 11. Add Your File to Git
-- Tell Git to track your file:
-  ```
-  git add SURNAME_DataReview.ipynb
-  ```
-  - Replace `SURNAME` with your surname (e.g., `git add CURADA_DataReview.ipynb`).
-
-### 12. Commit Your Changes
-- Save your changes with a descriptive message:
-  ```
-  git commit -m "Add SURNAME_DataReview.ipynb with 5 research questions"
-  ```
-  - Replace `SURNAME` with your surname (e.g., `git commit -m "Add CURADA_DataReview.ipynb with 5 research questions"`).
-
-### 13. Push Your Work to GitHub
-- Send your changes to the `data-review` branch on GitHub:
-  ```
+### 11. Push Your Changes to the `data-review` Branch
+- Push your changes to the `data-review` branch in your forked repository:
+  ```bash
   git push origin data-review
   ```
-- The first time, enter your GitHub username and paste your PAT when prompted. After that, Git should remember them.
+- **Note**: You cannot push directly to the `main` branch due to branch protection rules. If you attempt to push to `main`, you will receive an error.
 
-### 14. Verify Your Submission
-- Visit [https://github.com/gdg-pup-data-and-ml/project-dreams/tree/data-review/data-review-ipynbs](https://github.com/gdg-pup-data-and-ml/project-dreams/tree/data-review/data-review-ipynbs) in your browser.
-- Check that your `SURNAME_DataReview.ipynb` file appears in the folder.
+### 12. Create a Pull Request (PR)
+- Go to your forked repository on GitHub.
+- You should see a banner indicating that you recently pushed to the `data-review` branch.
+- Click **Compare & pull request**.
+- In the pull request:
+  - Use the title: `Data Review Submission - <Your Surname>` (e.g., `Data Review Submission - Curada`).
+  - Add a description:
+    ```
+    - Submitted data review notebook: <SURNAME_DataReview.ipynb>
+    - Contains 5 research questions and analyses for Project DREAMS.
+    - Ready for review.
+    ```
+- Ensure the PR is targeting the `main` branch of the original repository.
+- Submit the pull request.
 
-## Tips for Beginners
-- **Branch Issue?** If `git checkout data-review` fails and you created it with `git checkout -b data-review`, your push will set it up on GitHub.
-- **Push Failed?** If you get "rejected" or "non-fast-forward," run `git pull origin data-review`, resolve conflicts (ask for help if needed), then push again.
-- **Made a Mistake?** Before pushing:
-  - Unstage a file: `git restore --staged SURNAME_DataReview.ipynb`
-  - Discard changes: `git restore SURNAME_DataReview.ipynb` (careful—this deletes unsaved changes!).
-- **Authentication Issues?** If prompted repeatedly for credentials, ensure you ran `git config --global credential.helper store` and used your PAT correctly.
+---
 
-## Need Help?
-- Contact **John Paul Curada** or **Jen Patrick Nataba** via the GDG PUP communication channel.
-- Post your question in our team chat—someone will assist you!
+## Due Date
+- **Submission Deadline**: March 14, 2025.
+- Be prepared to discuss your research questions in the next team meeting.
 
-## Next Steps
-- Be ready to discuss your research questions in our next team meeting after submission.
-- Your work here will directly contribute to Project DREAMS’ analytics platform!
+---
 
-Happy coding, and thank you for contributing to **Project DREAMS**!
+## Evaluation Criteria
+Your submission will be evaluated based on:
+- Relevance to Project DREAMS objectives.
+- Clarity and specificity of research questions.
+- Appropriate identification of data tables and columns.
+- Creativity and insight in proposed analyses.
+- Actionability of potential insights.
+- Proper use of Markdown formatting in the notebook.
+
+---
+
+## Troubleshooting
+- **Cannot push to `data-review` branch**: Verify your permissions with the project lead or organization owner.
+- **Cannot push to `main` branch**: This is expected due to branch protection rules. Ensure you are pushing to the `data-review` branch.
+- **Merge conflicts**: If your PR has conflicts, resolve them locally by pulling the latest changes from `upstream/main`, merging them into your `data-review` branch, and pushing the updated branch.
+- **Need help with Git/GitHub**: Reach out to the project lead or refer to GitHub's documentation.
+
+---
+
+## Questions?
+If you have any questions or need assistance, contact the project lead (John Paul Curada) or open an issue in the repository.
+
+Happy analyzing, and thank you for contributing to Project DREAMS! 🚀
 
